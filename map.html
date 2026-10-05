@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#edeeea">
+<title>경사로 지도 — 설치된 경사로 찾기</title>
+<meta name="description" content="무턱대고가 경사로를 설치한 식당과 가게를 카카오맵에서 찾고, 설치 기록과 길찾기를 확인하세요.">
+<link rel="canonical" href="https://muteokdaego-web.vercel.app/map.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="무턱대고">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="경사로 지도 — 설치된 경사로 찾기">
+<meta property="og:description" content="무턱대고가 경사로를 설치한 식당과 가게를 지도에서 찾고 설치 기록을 확인하세요.">
+<meta property="og:url" content="https://muteokdaego-web.vercel.app/map.html">
+<meta property="og:image" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta property="og:image:secure_url" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="3600">
+<meta property="og:image:height" content="1658">
+<meta property="og:image:alt" content="무턱대고 — 턱을 없앱니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="경사로 지도 — 설치된 경사로 찾기">
+<meta name="twitter:description" content="무턱대고가 경사로를 설치한 식당과 가게를 지도에서 찾고 설치 기록을 확인하세요.">
+<meta name="twitter:image" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta name="twitter:image:alt" content="무턱대고 — 턱을 없앱니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css?v=20260914-5">
+<link rel="stylesheet" href="assets/css/develop.css?v=11">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<div data-site-header></div>
+
+<main>
+
+<section class="map-stage" aria-labelledby="mapSectionTitle">
+  <div class="map-stage-inner">
+    <section class="map-panel" aria-label="경사로 설치 위치 카카오맵">
+      <div class="google-map" id="googleMap"></div>
+      <div class="map-placeholder-pattern" aria-hidden="true">
+        <span class="map-placeholder-road road-a"></span>
+        <span class="map-placeholder-road road-b"></span>
+        <span class="map-placeholder-road road-c"></span>
+      </div>
+
+      <div class="map-state-overlay" id="mapLoading">
+        <span class="map-state-icon map-state-icon-loading" aria-hidden="true"></span>
+        <strong>설치 장소를 지도에 놓고 있어요</strong>
+        <p>카카오맵에서 위치 정보를 확인하는 중입니다.</p>
+      </div>
+
+      <div class="map-state-overlay map-state-error" id="mapError" hidden>
+        <span class="map-state-icon" aria-hidden="true">
+          <span class="mini-ramp-face"><i></i><i></i><b></b></span>
+        </span>
+        <strong id="mapErrorTitle">지도를 준비하고 있어요</strong>
+        <p id="mapErrorMessage">설치 장소 목록과 개별 카카오맵 링크는 계속 이용할 수 있습니다.</p>
+        <button id="mapRetry" type="button">다시 연결</button>
+      </div>
+
+      <div class="map-sync-pill" id="mapSyncStatus" aria-live="polite" hidden>
+        <span aria-hidden="true"></span>
+        <b>카카오맵 연결됨</b>
+      </div>
+
+      <article class="map-place-card" id="mapPlaceCard" aria-live="polite" hidden></article>
+    </section>
+
+    <aside class="map-dock" aria-label="설치 장소 검색과 목록">
+      <header class="dock-head">
+        <p class="map-kicker">RAMP SPOTS</p>
+        <h2 id="mapSectionTitle">설치 장소 찾기</h2>
+        <p>상호명이나 동네를 검색하고, 마커를 눌러 상세 정보를 확인하세요.</p>
+      </header>
+
+      <div class="map-toolbar" role="search">
+        <div class="map-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <label class="sr-only" for="mapSearch">설치 장소 검색</label>
+          <input id="mapSearch" type="search" placeholder="상호명 또는 동네 검색" autocomplete="off" enterkeyhint="search">
+          <button class="map-search-clear" id="mapSearchClear" type="button" aria-label="검색어 지우기" hidden>지우기</button>
+        </div>
+        <button class="map-locate" id="mapLocate" type="button" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg>
+          <span>내 위치</span>
+        </button>
+      </div>
+
+      <div class="map-filter-row">
+        <div class="map-filters" role="group" aria-label="가게 종류 필터">
+          <button class="chip is-active" data-map-filter="all" type="button">전체 <span data-filter-count="all">15</span></button>
+          <button class="chip" data-map-filter="food" type="button">식당 <span data-filter-count="food">0</span></button>
+          <button class="chip" data-map-filter="cafe" type="button">카페 <span data-filter-count="cafe">0</span></button>
+          <button class="chip" data-map-filter="care" type="button">약국·기관 <span data-filter-count="care">0</span></button>
+          <button class="chip" data-map-filter="etc" type="button">판매·기타 <span data-filter-count="etc">0</span></button>
+        </div>
+        <p class="map-result-count" id="mapResultCount" aria-live="polite">15곳 표시</p>
+      </div>
+
+      <section class="map-results" aria-labelledby="mapResultsTitle">
+        <div class="map-results-head">
+          <div>
+            <h3 id="mapResultsTitle">설치된 공간</h3>
+            <p>목록을 누르면 지도에서 위치를 보여드려요.</p>
+          </div>
+          <span class="marker-key"><span class="marker-key-icon" aria-hidden="true"><i></i><i></i><b></b></span> 경사로 마커</span>
+        </div>
+        <div class="store-list" id="storeList"></div>
+        <div class="map-empty" id="mapEmpty" hidden>
+          <strong>조건에 맞는 장소가 없어요</strong>
+          <p>검색어를 지우거나 다른 카테고리를 선택해 보세요.</p>
+          <button id="mapReset" type="button">전체 장소 보기</button>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <p class="map-data-note container">
+    <span aria-hidden="true">ⓘ</span>
+    위치·주소·운영 상태는 카카오맵 정보를 기준으로 표시하며 실제 현장 정보와 다를 수 있습니다.
+  </p>
+</section>
+
+<section class="map-cta">
+  <div class="container map-cta-inner">
+    <div>
+      <p class="eyebrow eyebrow-light"><span class="eyebrow-dot" aria-hidden="true"></span>지도에 다음 장소를 더해 주세요</p>
+      <h2>우리 동네에도<br>경사로가 필요하다면</h2>
+      <p>가게 이름과 주소, 입구 사진 한 장이면 충분합니다.</p>
+    </div>
+    <a class="btn btn-yellow" href="apply.html">경사로 신청하기</a>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script src="assets/js/site-shell.js?v=20260914-5"></script>
+<script src="assets/js/stores.js?v=20260914-5"></script>
+<script src="assets/js/main.js?v=20260914-5"></script>
+<script src="assets/js/kakao-config.js?v=2"></script>
+<script src="assets/js/kakao-map.js?v=2"></script>
+<script src="assets/js/map.js?v=3"></script>
+<script src="assets/js/develop.js?v=7"></script>
+</body>
+</html>

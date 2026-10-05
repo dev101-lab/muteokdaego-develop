@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무턱대고 — 무턱대고 턱을 없앱니다</title>
+<meta name="description" content="청년 사회혁신 프로젝트 무턱대고. 소규모 가게 앞 턱을 없애고 경사로를 설치합니다. 15곳의 실제 설치 전후 기록.">
+<link rel="canonical" href="https://muteokdaego-web.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="무턱대고">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="무턱대고 — 무턱대고 턱을 없앱니다">
+<meta property="og:description" content="소규모 가게 앞 턱을 없애고 경사로를 설치하는 청년 사회혁신 프로젝트입니다.">
+<meta property="og:url" content="https://muteokdaego-web.vercel.app/">
+<meta property="og:image" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta property="og:image:secure_url" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="3600">
+<meta property="og:image:height" content="1658">
+<meta property="og:image:alt" content="무턱대고 — 턱을 없앱니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="무턱대고 — 무턱대고 턱을 없앱니다">
+<meta name="twitter:description" content="소규모 가게 앞 턱을 없애고 경사로를 설치하는 청년 사회혁신 프로젝트입니다.">
+<meta name="twitter:image" content="https://muteokdaego-web.vercel.app/assets/img/muteokdaego-social-preview.png">
+<meta name="twitter:image:alt" content="무턱대고 — 턱을 없앱니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css?v=20260914-5">
+<link rel="stylesheet" href="assets/css/develop.css?v=11">
+</head>
+<body class="home">
+
+<!-- 로딩 커튼: 턱 → 경사로 -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-stage">
+    <svg viewBox="0 0 200 80" class="loader-svg">
+      <path class="loader-step" d="M10 70 H90 V40 H190" />
+      <path class="loader-ramp" d="M90 70 L190 40 V70 Z" />
+    </svg>
+    <p class="loader-word"><span>무</span><span>턱</span><span>대</span><span>고</span></p>
+  </div>
+</div>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<div data-site-header></div>
+
+<main>
+
+<!-- ============ POSTER HERO ============ -->
+<section class="poster">
+  <div class="poster-bg" aria-hidden="true">
+    <i class="tri t1" data-depth="26"></i><i class="tri t2" data-depth="-18"></i><i class="tri t3" data-depth="40"></i>
+    <i class="tri t4" data-depth="-30"></i><i class="tri t5" data-depth="14"></i>
+    <i class="ring r1" data-depth="-22"></i><i class="ring r2" data-depth="30"></i>
+  </div>
+  <div class="poster-inner">
+    <h1 class="poster-title">
+      <span class="poster-line">
+        <span class="poster-word">무턱대고</span>
+        <img class="poster-sticker" src="assets/img/sticker-all-wheels.png"
+             width="552" height="438" alt="" aria-hidden="true">
+      </span>
+      <span class="poster-line poster-line-2"><em>턱</em>을 없앱니다.</span>
+    </h1>
+  </div>
+  <div class="poster-marquee" aria-hidden="true">
+    <div class="marquee-track" data-marquee="poster"></div>
+  </div>
+  <a class="poster-scroll" href="#intro" aria-label="아래로 스크롤해서 소개 보기">
+    <svg viewBox="0 0 48 30" aria-hidden="true" focusable="false">
+      <path d="M5 6 L24 24 L43 6" fill="none" stroke="currentColor"
+            stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ============ INTRO (기존 히어로 내용) ============ -->
+<section class="intro" id="intro">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>청년 사회혁신 프로젝트</p>
+      <h2 class="intro-title">모든 바퀴가<br>환영받는 동네를 만듭니다</h2>
+      <p class="hero-lead">계단 한 칸 앞에서 발걸음을 돌리는 사람들이 있습니다. <br class="br-wide">무턱대고는 가게 앞 그 한 칸을 직접 없앱니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="apply.html">경사로 신청하기</a>
+        <a class="btn btn-ghost" href="#archive">15곳의 기록 보기</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>설치 경사로</dt><dd><b class="count" data-count="17">0</b><span>+</span></dd></div>
+        <div><dt>활동 지역</dt><dd><b class="count" data-count="4">0</b><span>+</span></dd></div>
+        <div><dt>함께한 봉사자</dt><dd><b class="count" data-count="15">0</b><span>+</span></dd></div>
+      </dl>
+    </div>
+    <figure class="hero-media reveal">
+      <div class="ba ba-hero" data-ba>
+        <img class="ba-img ba-before" src="assets/img/stores/yogi-before.jpg" alt="yogi 식당 입구, 경사로 설치 전 — 출입문 앞에 턱이 있다">
+        <div class="ba-after-wrap">
+          <img class="ba-img ba-after" src="assets/img/stores/yogi-after.jpg" alt="yogi 식당 입구, 경사로 설치 후 — 턱 위에 경사로가 놓였다">
+        </div>
+        <div class="ba-handle" aria-hidden="true"><span class="ba-grip"></span></div>
+        <span class="ba-tag ba-tag-before" aria-hidden="true">설치 전</span>
+        <span class="ba-tag ba-tag-after" aria-hidden="true">설치 후</span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="설치 전후 비교 슬라이더 — yogi 식당">
+      </div>
+      <figcaption class="hero-caption">yogi 식당의 설치 기록 — 직접 드래그해서 전후를 비교해 보세요</figcaption>
+    </figure>
+  </div>
+  <div class="stripe" aria-hidden="true"></div>
+</section>
+
+<!-- ============ RAMP STORY (scroll-driven) ============ -->
+<section class="rstory" id="story-scroll" aria-label="턱 하나가 막던 길을 경사로가 여는 과정">
+  <div class="rstory-sticky">
+    <div class="rstory-copy">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>스크롤해 보세요</p>
+      <h2 class="rstory-title">
+        <span class="rs-a">딱 한 칸.<br>그런데 못 넘습니다.</span>
+        <span class="rs-b">그래서 <em>경사로</em>를 놓습니다.</span>
+      </h2>
+    </div>
+    <svg class="rstory-svg" viewBox="0 0 1000 380" role="img" aria-label="바퀴가 가게 앞 턱에서 멈추고, 경사로가 놓이자 올라서는 모습">
+      <defs>
+        <pattern id="blockStripe" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+          <rect width="7" height="14" fill="#f6c445"/><rect x="7" width="7" height="14" fill="#1b1c1f"/>
+        </pattern>
+      </defs>
+      <rect class="rs-ground" x="0" y="300" width="1000" height="80"/>
+      <rect class="rs-step" x="480" y="236" width="520" height="144"/>
+      <rect x="480" y="236" width="520" height="8" fill="url(#blockStripe)"/>
+      <polygon class="rs-ramp" points="296,300 480,236 480,300"/>
+      <g class="rs-tag"><rect x="505" y="170" width="112" height="40" rx="20"/><text x="561" y="197" text-anchor="middle">턱 1칸</text></g>
+      <g class="rs-wheel">
+        <circle r="38" class="rs-tire"/><circle r="26" class="rs-rim"/>
+        <g class="rs-spokes"><path d="M-26 0H26M0 -26V26M-18 -18L18 18M-18 18L18 -18"/></g>
+        <circle r="6" class="rs-hub"/>
+      </g>
+      <g class="rs-burst"><path d="M432 214 l-22 -16 M436 196 l-14 -26 M452 184 l2 -28"/></g>
+    </svg>
+    <div class="rstory-bar" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section why-section" id="why">
+  <div class="container why-wrap">
+    <p class="why-pill reveal">왜 턱을 없애야 할까요?</p>
+    <h2 class="why-title">
+      <mark>계단 하나가</mark> 문 하나를<br class="br-m"> 닫습니다
+    </h2>
+    <p class="why-lead reveal">대한민국 소규모 매장의 77.1%는 경사로가 없거나 바퀴가 출입하기 어려운 구조입니다.<br>
+      5cm 높이의 턱 때문에 발길을 돌리는 사람들이 있습니다.</p>
+    <ul class="why-grid">
+      <li class="why-card reveal">
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="6" r="3"/><path d="M13 10v8h8l3 7M13 14h7M9 16a7 7 0 1 0 10 9"/></svg></span>
+        <p class="why-stat">약 20만 명</p>
+        <h3>휠체어 이용자</h3>
+        <p>입구의 작은 턱 하나로 가게 안에 들어가는 선택 자체가 사라질 수 있습니다.</p>
+      </li>
+      <li class="why-card reveal">
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="15" cy="6" r="3"/><path d="M15 10l-2 8 -4 9M13 18l5 9M10 14l5-2 5 4v4M22 16v11"/></svg></span>
+        <p class="why-stat">약 1,112만 명</p>
+        <h3>노인·어르신</h3>
+        <p>낮은 단차도 보행이 불편한 이웃에게는 넘어짐 위험이 될 수 있습니다.</p>
+      </li>
+      <li class="why-card reveal">
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4.5"/><path d="M6 27c0-6 4-10 10-10s10 4 10 10"/></svg></span>
+        <p class="why-stat">누구나</p>
+        <h3>일시적 이동약자</h3>
+        <p>유아차, 임신, 골절, 무거운 짐처럼 우리 모두에게 경사로가 필요한 순간이 옵니다.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ B. 경사로 하나하나가 누군가의 이야기입니다 (스크롤 연동 전후 비교) ============ -->
+<section class="sx" id="homeStory" aria-labelledby="homeStoryTitle">
+  <div class="sx-sticky">
+    <div class="sx-ghost" id="sxGhost" aria-hidden="true">01</div>
+
+    <div class="sx-left">
+      <header class="sx-head">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>설치 전후 기록</p>
+        <h2 class="sx-title" id="homeStoryTitle">경사로 하나하나가<br>누군가의 이야기입니다</h2>
+        <dl class="sx-stats">
+          <div><dd><b class="count" data-count="17">0</b>+</dd><dt>설치 경사로</dt></div>
+          <div><dd><b class="count" data-count="4">0</b>+</dd><dt>활동 지역</dt></div>
+          <div><dd><b class="count" data-count="15">0</b>+</dd><dt>함께한 봉사자</dt></div>
+        </dl>
+      </header>
+      <div class="sx-info" id="sxInfo"></div>
+    </div>
+
+    <div class="sx-right">
+      <div class="sx-frame" id="sxFrame">
+        <div class="sx-frs" id="sxFrs"></div>
+        <div class="sx-handle" id="sxHandle" aria-hidden="true"><span><i></i></span></div>
+        <span class="sx-tag sx-tag-b" aria-hidden="true">설치 전</span>
+        <span class="sx-tag sx-tag-a" aria-hidden="true">설치 후</span>
+        <input class="sx-range" id="sxRange" type="range" min="0" max="100" value="50" aria-label="설치 전후 비교 슬라이더">
+      </div>
+      <p class="sx-hint"><span aria-hidden="true">↔</span> 드래그해서 직접 비교해보세요 <em>스크롤하면 다음 가게로 넘어가요</em></p>
+    </div>
+
+    <ol class="sx-dots" id="sxDots" aria-label="가게 선택"></ol>
+  </div>
+</section>
+
+<!-- ============ C. 점주 인터뷰 ============ -->
+<section class="hm-voices" id="homeVoices" aria-labelledby="homeVoicesTitle">
+  <div class="container">
+    <header class="hm-voices-head">
+      <p class="hm-voices-label">점주 인터뷰</p>
+      <h2 id="homeVoicesTitle">무턱대고가<br class="br-m"> 만든 변화</h2>
+    </header>
+    <ul class="hm-voice-list" id="hmVoices"></ul>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script src="assets/js/site-shell.js?v=20260914-5"></script>
+<script src="assets/js/stores.js?v=20260914-5"></script>
+<script src="assets/js/content-data.js?v=20260914-5"></script>
+<script src="assets/js/main.js?v=20260914-5"></script>
+<script src="assets/js/develop.js?v=7"></script>
+</body>
+</html>
