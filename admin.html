@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>무턱대고 관리자</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/admin.css?v=1">
+</head>
+<body>
+
+<div class="adm">
+  <aside class="adm-side">
+    <a class="adm-brand" href="index.html" title="사이트로 이동">
+      <svg viewBox="0 0 28 20" aria-hidden="true"><path d="M1 19 L27 3 L27 19 Z"/></svg>
+      <span>무턱대고 <b>관리자</b></span>
+    </a>
+    <nav class="adm-nav" aria-label="관리 메뉴">
+      <button type="button" data-view="dashboard" class="is-active"><span aria-hidden="true">◎</span>대시보드</button>
+      <button type="button" data-view="stores"><span aria-hidden="true">◢</span>설치 가게 · 지도<em data-count="stores"></em></button>
+      <button type="button" data-view="supports"><span aria-hidden="true">▤</span>지역 공고<em data-count="supports"></em></button>
+      <button type="button" data-view="requests"><span aria-hidden="true">✉</span>신청 접수<em data-count="requests"></em></button>
+      <button type="button" data-view="voices"><span aria-hidden="true">❝</span>점주 인터뷰<em data-count="voices"></em></button>
+    </nav>
+    <div class="adm-side-foot">
+      <button type="button" id="admExport">JSON 내보내기</button>
+      <button type="button" id="admReset">사이트 데이터로 초기화</button>
+    </div>
+  </aside>
+
+  <main class="adm-main">
+    <p class="adm-demo" role="note">
+      <b>미리보기</b> 데이터베이스 연결 전이라 수정 내용은 이 브라우저에만 저장되고 실제 사이트에는 반영되지 않아요.
+    </p>
+    <div id="admView"></div>
+  </main>
+</div>
+
+<!-- 추가·수정 패널 -->
+<dialog class="adm-drawer" id="admDrawer" aria-labelledby="admDrawerTitle">
+  <form method="dialog" id="admForm" novalidate>
+    <header class="adm-drawer-head">
+      <h2 id="admDrawerTitle">편집</h2>
+      <button type="button" class="adm-icon-btn" data-close aria-label="닫기">✕</button>
+    </header>
+    <div class="adm-drawer-body" id="admFields"></div>
+    <footer class="adm-drawer-foot">
+      <button type="button" class="adm-btn adm-btn-danger" id="admDelete">삭제</button>
+      <span class="adm-spacer"></span>
+      <button type="button" class="adm-btn" data-close>취소</button>
+      <button type="submit" class="adm-btn adm-btn-primary">저장</button>
+    </footer>
+  </form>
+</dialog>
+
+<div class="adm-toast" id="admToast" role="status" aria-live="polite" hidden></div>
+
+<script src="assets/js/stores.js?v=20260914-5"></script>
+<script src="assets/js/content-data.js?v=20260914-5"></script>
+<script src="assets/js/admin.js?v=1"></script>
+</body>
+</html>
